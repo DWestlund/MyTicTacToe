@@ -30,12 +30,10 @@ public class Menu {
 					System.out.println("\nChoose a option from the menu...\n");
 					continue;
 				}
-
 			} catch (InputMismatchException ex) {
 				System.out.println("\nThat is not in the menu...\n");
 				scanner.nextLine();
 			}
-
 		} while (menuInput != 0);
 	}
 }

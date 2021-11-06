@@ -1,6 +1,7 @@
 package com.westlund.david.player;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import com.westlund.david.input.UserInput;
 
@@ -8,14 +9,16 @@ public class Player {
 	private static ArrayList<Player> players = new ArrayList<Player>();
 	private String name;
 	private char symbol;
-	private boolean roundWinner;
 	private boolean gameWinner;
+	private boolean roundStarter;
+	private boolean roundWinner;
 	
 	public Player(String name, char symbol){
 		this.name = name;
 		this.symbol = symbol;
-		this.setRoundWinner(false);
 		this.setGameWinner(false);
+		this.setRoundStarter(false);
+		this.setRoundWinner(false);
 	}
 	
 	public static ArrayList<Player> getPlayers() {
@@ -30,18 +33,25 @@ public class Player {
 		return symbol;
 	}
 
-	public boolean isRoundWinner() {
-		return roundWinner;
-	}
-	public void setRoundWinner(boolean roundWinner) {
-		this.roundWinner = roundWinner;
-	}
-
 	public boolean isGameWinner() {
 		return gameWinner;
 	}
 	public void setGameWinner(boolean gameWinner) {
 		this.gameWinner = gameWinner;
+	}
+	
+	public boolean isRoundStarter() {
+		return roundStarter;
+	}
+	public void setRoundStarter(boolean roundStarter) {
+		this.roundStarter = roundStarter;
+	}
+	
+	public boolean isRoundWinner() {
+		return roundWinner;
+	}
+	public void setRoundWinner(boolean roundWinner) {
+		this.roundWinner = roundWinner;
 	}
 	
 	
@@ -52,8 +62,15 @@ public class Player {
 			
 			Player player = new Player(name, symbol);
 			players.add(player);
-		}
-			
+		}			
+	}
+	
+	public static void rndRoundStarter() {
+		Random rnd = new Random();
+		int nr = rnd.nextInt(1);
+		
+		players.get(nr).setRoundStarter(true);
+		
 	}
 
 	
