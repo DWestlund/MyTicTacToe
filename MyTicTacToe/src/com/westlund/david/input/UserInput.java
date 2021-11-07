@@ -54,9 +54,9 @@ public class UserInput {
 	
 	//TODO try med scanner fungerar inte.....
 	public static void boardInput(Player player, Board board) {
+		Scanner scanner = new Scanner(System.in);
 		boolean added = false;
 		do {
-			try(Scanner scanner = new Scanner(System.in)){
 				try {
 					System.out.print(player.getName() + "[" + player.getSymbol() + "] >> ");
 					int squareNum = scanner.nextInt();
@@ -73,8 +73,7 @@ public class UserInput {
 					}
 				} catch(InputMismatchException ex) {
 					scanner.nextLine();
-				}
-			}			
+				}			
 		}while(!added);
 
 		

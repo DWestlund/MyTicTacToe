@@ -52,12 +52,13 @@ public class Game {
 		while(!myGame.isRoundWinner()) {
 			myGame.setCurrentRound(myGame.getCurrentRound() +1);
 			
+			//TODO check whats wrong here....
 			for(Player player : Player.getPlayers()) {
-				if(player.isRoundStarter()) {
+				if(player.isRoundStarter() == true && myGame.getCurrentRound() == 1) {
 					printRound(player, myGame);
 					player.setRoundStarter(false);
 					
-				} else if(!player.isRoundStarter() && myGame.getCurrentRound() == 1) {
+				} else {
 					continue;	
 				}
 					board.printBoard(board);
